@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nguyễn Viết Trung Hiếu - Portfolio</title>
+    <meta name="description" content="Portfolio của Nguyễn Viết Trung Hiếu - Frontend Developer">
+
+    <!-- Open Graph: khung preview khi chia sẻ link (Facebook, Zalo...) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Nguyễn Viết Trung Hiếu - Portfolio">
+    <meta property="og:description" content="Portfolio của Nguyễn Viết Trung Hiếu - Frontend Developer">
+    <meta property="og:url" content="https://example.com/">
+    <!-- Ảnh 1200x630px, dùng URL tuyệt đối (https). Thay example.com bằng domain thật khi deploy -->
+    <meta property="og:image" content="https://example.com/assets/og-image.jpg">
+
+    <!-- [FIX 5] Preconnect tới Google Fonts: mở sẵn kết nối DNS/TLS để font tải nhanh hơn -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Google Fonts: Inter (văn bản chính) và Fira Code (phong cách code/IT) -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Animate.css & AOS CSS (CDN) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+
+    <!-- CSS riêng -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Khi tắt JS, AOS không chạy nên phần tử data-aos bị ẩn (opacity 0). Ghi đè để nội dung vẫn hiện -->
+    <noscript>
+        <style>[data-aos] { opacity: 1 !important; transform: none !important; }</style>
+    </noscript>
+</head>
+<body>
+    <!-- [FIX 5] Thông báo khi tắt JavaScript, đặt ngay sau thẻ <body> -->
+    <noscript>
+        <div class="noscript-banner">Vui lòng bật JavaScript để trải nghiệm website tốt nhất</div>
+    </noscript>
+
+    <!-- [MỚI] Scroll Progress Bar: JS cập nhật width theo % cuộn trang -->
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+    <!-- HEADER -->
+    <header>
+        <div class="container header-inner">
+            <a href="#home" class="logo">&lt;NVTH /&gt;</a>
+            <nav aria-label="Điều hướng chính">
+                <ul>
+                    <li><a href="#home">01. Home</a></li>
+                    <li><a href="#about">02. About</a></li>
+                    <li><a href="#skills">03. Skills</a></li>
+                    <li><a href="#projects">04. Projects</a></li>
+                    <li><a href="#contact">05. Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO -->
+        <section id="home">
+            <div class="animate__animated animate__fadeInDown">
+                <p class="hero-greeting">Xin chào, tôi là</p>
+                <h1 class="hero-title">Nguyễn Viết Trung Hiếu.</h1>
+                <h2 class="hero-role">Tôi xây dựng thế giới Web.</h2>
+                <p class="hero-desc">
+                    Tôi là một Frontend Developer đam mê thiết kế UI/UX và phát triển các sản phẩm kỹ thuật số đột phá.
+                    Chuyên môn của tôi là tạo ra các trải nghiệm người dùng tuyệt vời với kiến trúc mã nguồn tối ưu.
+                </p>
+                <a href="#projects" class="btn animate__animated animate__pulse animate__repeat-3">Khám Phá Dự Án</a>
+            </div>
+        </section>
+
+        <!-- ABOUT -->
+        <section id="about" class="bg-light">
+            <h2 class="section-title" data-aos="fade-up"><span aria-hidden="true">01.</span> Về Bản Thân</h2>
+            <div class="about-wrapper">
+                <div class="about-text" data-aos="fade-right">
+                    <p>Xin chào! Tôi là Hiếu, người thích tạo ra những thứ sống động trên Internet. Sự quan tâm của tôi đến lập trình web bắt đầu từ khi tôi nhận ra mình có thể kết hợp tính logic của code và tính nghệ thuật của thiết kế.</p>
+                    <p>Định hướng hiện tại của tôi là trở thành một <strong>Senior Frontend Developer</strong>. Tôi dành phần lớn thời gian để học hỏi các công nghệ mới, viết mã sạch (clean code) và tối ưu hóa hiệu suất website.</p>
+                    <p>Khi không ngồi trước màn hình máy tính, tôi thường tìm hiểu về an ninh mạng hoặc tham gia các cộng đồng mã nguồn mở.</p>
+                </div>
+                <figure class="about-img-container" data-aos="fade-left">
+                    <!-- Ảnh thật: đặt vào thư mục assets/. Avatar KHÔNG lazy-load [FIX 5] -->
+                    <img src="assets/avatar.jpg" alt="Nguyễn Viết Trung Hiếu" class="about-img"
+                         onerror="this.src='https://placehold.co/400x400/112240/64ffda?text=Avatar+Here'">
+                </figure>
+            </div>
+        </section>
+
+        <!-- SKILLS: data-aos nằm ở <li>, hover nằm ở .skill-card -->
+        <section id="skills">
+            <h2 class="section-title" data-aos="fade-up"><span aria-hidden="true">02.</span> Kỹ Năng Công Nghệ</h2>
+            <ul class="skills-grid">
+                <li data-aos="zoom-in" data-aos-delay="50"><div class="skill-card">HTML5 / CSS3</div></li>
+                <li data-aos="zoom-in" data-aos-delay="100"><div class="skill-card">JavaScript (ES6+)</div></li>
+                <li data-aos="zoom-in" data-aos-delay="150"><div class="skill-card">ReactJS</div></li>
+                <li data-aos="zoom-in" data-aos-delay="200"><div class="skill-card">TypeScript</div></li>
+                <li data-aos="zoom-in" data-aos-delay="250"><div class="skill-card">Tailwind / SASS</div></li>
+                <li data-aos="zoom-in" data-aos-delay="300"><div class="skill-card">Git / GitHub</div></li>
+                <li data-aos="zoom-in" data-aos-delay="350"><div class="skill-card">UI/UX Figma</div></li>
+                <li data-aos="zoom-in" data-aos-delay="400"><div class="skill-card">RESTful APIs</div></li>
+            </ul>
+        </section>
+
+        <!-- PROJECTS: data-aos nằm ở <li>, hover và focus-within nằm ở .project-card -->
+        <section id="projects" class="bg-light">
+            <h2 class="section-title" data-aos="fade-up"><span aria-hidden="true">03.</span> Dự Án Tiêu Biểu</h2>
+            <ul class="projects-grid">
+                <li data-aos="fade-up" data-aos-delay="100">
+                    <article class="project-card">
+                        <div class="project-img-wrapper">
+                            <img src="assets/project1.png" loading="lazy" alt="Hệ thống E-Commerce"
+                                 onerror="this.src='https://placehold.co/600x400/233554/64ffda?text=Project+1'">
+                        </div>
+                        <div class="project-info">
+                            <h3>Hệ Thống E-Commerce</h3>
+                            <p>Ứng dụng mua sắm trực tuyến với đầy đủ tính năng giỏ hàng, xác thực người dùng và thanh toán.</p>
+                            <button class="btn btn-detail" aria-haspopup="dialog"
+                                    data-title="Hệ Thống E-Commerce"
+                                    data-desc="Một nền tảng thương mại điện tử hoàn chỉnh. Người dùng có thể duyệt sản phẩm, thêm vào giỏ hàng, đăng nhập/đăng ký tài khoản và tiến hành thanh toán an toàn. Giao diện được tối ưu hóa chuẩn Mobile-first, tốc độ tải trang nhanh và trải nghiệm mượt mà."
+                                    data-tech="HTML5, CSS Grid, Vanilla JS, LocalStorage"
+                                    data-img="assets/project1.png">Xem chi tiết</button>
+                        </div>
+                    </article>
+                </li>
+
+                <li data-aos="fade-up" data-aos-delay="200">
+                    <article class="project-card">
+                        <div class="project-img-wrapper">
+                            <img src="assets/project2.png" loading="lazy" alt="Cyber Task Manager"
+                                 onerror="this.src='https://placehold.co/600x400/233554/00f2fe?text=Project+2'">
+                        </div>
+                        <div class="project-info">
+                            <h3>Cyber Task Manager</h3>
+                            <p>Ứng dụng quản lý công việc phong cách Cyberpunk với tính năng kéo thả (Drag & Drop) thông minh.</p>
+                            <button class="btn btn-detail" aria-haspopup="dialog"
+                                    data-title="Cyber Task Manager"
+                                    data-desc="Khác với các ứng dụng To-Do thông thường, dự án này mang giao diện Dark Mode công nghệ cao. Hỗ trợ tạo task, phân loại danh mục, và sử dụng Web API Drag & Drop để kéo thả trạng thái công việc."
+                                    data-tech="JavaScript ES6, DOM Manipulation, CSS Flexbox"
+                                    data-img="assets/project2.png">Xem chi tiết</button>
+                        </div>
+                    </article>
+                </li>
+
+                <li data-aos="fade-up" data-aos-delay="300">
+                    <article class="project-card">
+                        <div class="project-img-wrapper">
+                            <img src="assets/project3.png" loading="lazy" alt="Movie DB Landing Page"
+                                 onerror="this.src='https://placehold.co/600x400/233554/ccd6f6?text=Project+3'">
+                        </div>
+                        <div class="project-info">
+                            <h3>Movie DB Landing Page</h3>
+                            <p>Website tra cứu phim ảnh tích hợp thư viện Animation phức tạp, giao diện chuẩn điện ảnh.</p>
+                            <button class="btn btn-detail" aria-haspopup="dialog"
+                                    data-title="Movie DB Landing Page"
+                                    data-desc="Giao diện hiển thị danh sách các bộ phim đang thịnh hành. Áp dụng các hiệu ứng Hover, Scroll Animation phức tạp. Thiết kế chú trọng vào yếu tố hình ảnh trực quan."
+                                    data-tech="HTML5 Semantic, CSS Variables, AOS.js"
+                                    data-img="assets/project3.png">Xem chi tiết</button>
+                        </div>
+                    </article>
+                </li>
+            </ul>
+        </section>
+
+        <!-- [MỚI] CONTACT: Grid 2 cột (thông tin liên hệ | form), nằm ngay trên Footer -->
+        <section id="contact">
+            <h2 class="section-title" data-aos="fade-up"><span aria-hidden="true">04.</span> Liên Hệ</h2>
+            <div class="contact-wrapper">
+                <div class="contact-info" data-aos="fade-right">
+                    <p>Bạn có ý tưởng dự án hoặc cơ hội hợp tác? Hãy để lại lời nhắn, tôi sẽ phản hồi sớm nhất có thể.</p>
+                    <!-- Thay bằng email và số điện thoại thật -->
+                    <address>
+                        <ul class="contact-list">
+                            <li><span class="contact-label">Email</span><a href="mailto:hello@example.com">hello@example.com</a></li>
+                            <li><span class="contact-label">Điện thoại</span><a href="tel:+84000000000">+84 000 000 000</a></li>
+                        </ul>
+                    </address>
+                </div>
+
+                <!-- Form mô phỏng: JS chặn submit thật, xóa form và hiện toast -->
+                <form class="contact-form" id="contactForm" data-aos="fade-left">
+                    <div class="form-group">
+                        <label for="contactName">Tên của bạn</label>
+                        <input type="text" id="contactName" name="name" autocomplete="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contactEmail">Email</label>
+                        <input type="email" id="contactEmail" name="email" autocomplete="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contactMessage">Lời nhắn</label>
+                        <textarea id="contactMessage" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Gửi tin nhắn</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <!-- Thay bằng link profile thật, ví dụ https://github.com/ten-ban -->
+        <ul class="social-links">
+            <li><a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+            <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+            <li><a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+        </ul>
+        <!-- Thay bằng email và số điện thoại thật -->
+        <address>
+            Email: <a href="mailto:hello@example.com">hello@example.com</a><br>
+            Điện thoại: <a href="tel:+84000000000">+84 000 000 000</a>
+        </address>
+        <p>Thiết kế & Xây dựng bởi Nguyễn Viết Trung Hiếu</p>
+        <p>&copy; 2026. Vibe Coding Edition.</p>
+    </footer>
+
+    <!-- MODAL: chi tiết dự án (ẩn mặc định) -->
+    <div class="modal-overlay" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal-content">
+            <button class="modal-close" id="closeModalBtn" aria-label="Đóng popup">&times;</button>
+            <img class="modal-img" id="modalImg" loading="lazy" alt="Ảnh dự án"
+                 onerror="this.src='https://placehold.co/800x400/112240/64ffda?text=Image+Not+Found'">
+            <div class="modal-body">
+                <h2 id="modalTitle">Tiêu đề dự án</h2>
+                <p id="modalDesc">Mô tả chi tiết dự án sẽ hiển thị ở đây...</p>
+                <h3 class="modal-tech-title">Công nghệ sử dụng:</h3>
+                <div class="modal-tech-stack" id="modalTech"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- [MỚI] TOAST: thông báo nổi góc dưới bên phải (role="status" để trình đọc màn hình đọc nội dung) -->
+    <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+
+    <!-- SCRIPT -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // AOS: tắt hiệu ứng khi người dùng bật "giảm chuyển động"
+        AOS.init({
+            offset: 50,
+            duration: 800,
+            easing: 'ease-out-cubic',
+            once: true,
+            disable: () => matchMedia('(prefers-reduced-motion: reduce)').matches
+        });
+
+        // Modal chi tiết dự án
+        const modal = document.getElementById('projectModal');
+        const closeBtn = document.getElementById('closeModalBtn');
+        const modalImg = document.getElementById('modalImg');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalDesc = document.getElementById('modalDesc');
+        const modalTech = document.getElementById('modalTech');
+        let lastTrigger = null; // Nút vừa mở modal, dùng để trả focus khi đóng
+        const header = document.querySelector('header'); // Header là position: fixed nên cần bù thanh cuộn riêng
+
+        // [FIX 4] Khóa cuộn khi mở modal và bù độ rộng thanh cuộn để trang không bị giật ngang (CLS)
+        function lockScroll() {
+            // Phải đo TRƯỚC khi ẩn overflow, vì sau đó thanh cuộn biến mất và kết quả sẽ = 0
+            const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+            document.body.style.overflow = 'hidden';
+            document.body.style.paddingRight = `${scrollbarWidth}px`;
+            header.style.paddingRight = `${scrollbarWidth}px`;
+        }
+
+        function unlockScroll() {
+            document.body.style.overflow = '';
+            document.body.style.paddingRight = '0';
+            header.style.paddingRight = '';
+        }
+
+        function openModal(event) {
+            const btn = event.currentTarget;
+            lastTrigger = btn;
+
+            modalTitle.textContent = btn.dataset.title;
+            modalDesc.textContent = btn.dataset.desc;
+            modalImg.src = btn.dataset.img;
+            modalImg.alt = btn.dataset.title;
+
+            // Tách chuỗi công nghệ thành các thẻ <span>
+            modalTech.replaceChildren(...btn.dataset.tech.split(',').map(tech => {
+                const span = document.createElement('span');
+                span.textContent = tech.trim();
+                return span;
+            }));
+
+            modal.classList.add('active');
+            lockScroll(); // [FIX 4] khóa cuộn + bù thanh cuộn
+            closeBtn.focus();
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+            unlockScroll(); // [FIX 4] mở khóa cuộn, trả padding-right về 0
+            lastTrigger?.focus();
+        }
+
+        document.querySelectorAll('.btn-detail').forEach(btn => btn.addEventListener('click', openModal));
+        closeBtn.addEventListener('click', closeModal);
+
+        // Click vùng tối bên ngoài để đóng
+        modal.addEventListener('click', e => {
+            if (e.target === modal) closeModal();
+        });
+
+        // [FIX 2] ESC đóng modal; Tab / Shift + Tab chỉ TUẦN HOÀN trong modal (focus trap chuẩn WAI-ARIA).
+        // Không còn ép focus về nút đóng mỗi lần bấm Tab nên không gây keyboard trap.
+        document.addEventListener('keydown', e => {
+            if (!modal.classList.contains('active')) return;
+            if (e.key === 'Escape') {
+                closeModal();
+                return;
+            }
+            if (e.key !== 'Tab') return;
+
+            const focusable = modal.querySelectorAll('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])');
+            const first = focusable[0];
+            const last = focusable[focusable.length - 1];
+
+            if (!modal.contains(document.activeElement)) {
+                e.preventDefault();
+                first.focus();
+            } else if (e.shiftKey && document.activeElement === first) {
+                e.preventDefault();
+                last.focus();
+            } else if (!e.shiftKey && document.activeElement === last) {
+                e.preventDefault();
+                first.focus();
+            }
+        });
+
+        // [MỚI] Scroll Progress Bar: cập nhật width theo % cuộn trang (throttle bằng requestAnimationFrame)
+        const progressBar = document.getElementById('scrollProgress');
+        let progressTicking = false;
+
+        function updateProgress() {
+            const doc = document.documentElement;
+            const scrollable = doc.scrollHeight - doc.clientHeight;
+            const percent = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
+            progressBar.style.width = `${Math.min(100, Math.max(0, percent))}%`;
+            progressTicking = false;
+        }
+
+        window.addEventListener('scroll', () => {
+            if (progressTicking) return;
+            progressTicking = true;
+            requestAnimationFrame(updateProgress);
+        }, { passive: true });
+        window.addEventListener('resize', updateProgress);
+        updateProgress();
+
+        // [MỚI] Contact form (mô phỏng) + Toast Notification
+        const contactForm = document.getElementById('contactForm');
+        const toast = document.getElementById('toast');
+        const TOAST_DURATION = 3000; // ms, khớp thời gian animation toast-countdown trong CSS
+        let toastTimer = null;
+
+        function showToast(message) {
+            clearTimeout(toastTimer);
+            toast.classList.remove('show');
+            void toast.offsetWidth; // Reflow để thanh đếm ngược chạy lại từ đầu nếu toast đang hiện
+            toast.textContent = message;
+            toast.classList.add('show');
+            toastTimer = setTimeout(() => toast.classList.remove('show'), TOAST_DURATION);
+        }
+
+        contactForm.addEventListener('submit', e => {
+            e.preventDefault();   // Không gửi thật, không reload trang
+            contactForm.reset();  // Tự động xóa các trường
+            showToast('Hệ thống đã ghi nhận tin nhắn!');
+        });
+    </script>
+</body>
+</html>
